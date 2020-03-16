@@ -1,29 +1,26 @@
 // Moludos cors que ya vienen definidos
 // Modulos funciones simples o más complejas que las podemos usar en diferentes app node
-//importaciones de dependencias usar CONST, var = mucha memoria, mejor let
-const express= require("express");
+// importaciones de dependencias usar CONST, var = mucha memoria, mejor let
+const express = require('express');
 
-//exportaciones parciales nombre de la module.exports
-const { info, error } = require("./modules/my-log");
-const { countries } = require("countries-list");
+// exportaciones parciales nombre de la module.exports
+const { countries } = require('countries-list');
+const { info, error } = require('./modules/my-log');
 
-//se crea una aplicación de express
+// se crea una aplicación de express
 const app = express();
 
-app.get('/',function(request,response){
-  response.status(200).send("Hola");
+app.get('/', (request, response) => { response.status(200).send('Hola'); });
+
+app.get('/info', (request, response) => {
+  info('Hola Info');
+  // por defecto tiene el status 200 por lo que puedes omitirlo
+  response.send('INFO nodemon 2');
 });
 
-app.get('/info',function(request,response){
-  info("Hola Info")
-  //por defecto tiene el status 200 por lo que puedes omitirlo
-  response.send("INFO nodemon 2")
-})
-
-app.get('*',function(request,response){
-  response.status(404).send("NOT FOUND");
+app.get('*', (request, response) => {
+  response.status(404).send('NOT FOUND');
 });
-
 
 // var server = http.createServer(function(request, response) {
 //     var parsed = url.parse(request.url);
@@ -67,7 +64,6 @@ app.get('*',function(request,response){
 //   }
 // });
 
-app.listen(4000,function(){
-  console.log('running on port 4000')
-})
-
+app.listen(4000, () => {
+  console.log('running on port 4000');
+});
