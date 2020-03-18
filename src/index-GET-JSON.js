@@ -1,7 +1,7 @@
 // Moludos cors que ya vienen definidos
 // Modulos funciones simples o más complejas que las podemos usar en diferentes app node
 // importaciones de dependencias usar CONST, var = mucha memoria, mejor let
-const express = require('express');
+//const express = require('express');
 
 // exportaciones parciales nombre de la module.exports
 const { countries } = require('countries-list');
